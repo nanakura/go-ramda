@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+// TODO fix
 func TestForeach(t *testing.T) {
 	ForEach[int](func(t int, i int) {
 		println(t)
