@@ -1,7 +1,7 @@
 package ramda
 
-// TODO
-// Reject Reject the values by the given predicate function (predicate func, slice)
-//func Reject[T any](fn func(T, int) bool, input ...T) []T {
-//
-//}
+func Reject[T any](fn func(T, int) bool, input []T) []T {
+	return Filter(func(val T, i int) bool {
+		return !fn(val, i)
+	})(input)
+}

@@ -1,8 +1,8 @@
 package ramda
 
 // Concat Concat slices
-func Concat[T any](mine []T) func(...[]T) []T {
-	return func(slices ...[]T) []T {
+func Concat[T any](mine []T) func([][]T) []T {
+	return func(slices [][]T) []T {
 		mineLen := len(mine)
 		totalLen := mineLen
 
