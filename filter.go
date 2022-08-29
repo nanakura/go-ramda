@@ -1,5 +1,7 @@
 package ramda
 
+// TODO modify
+
 // Filter Filter the values by the given predicate function (predicate func, slice)
 func Filter[T any](fn func(T, int) bool) func(...T) []T {
 	return func(input ...T) []T {
