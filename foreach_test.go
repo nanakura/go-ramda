@@ -4,9 +4,8 @@ import (
 	"testing"
 )
 
-// TODO fix
 func TestForeach(t *testing.T) {
-	ForEach[int](func(t int, i int) {
-		println(t)
+	ForEach[int](func(x int) {
+		t.Log(x)
 	})([]int{1, 2, 3})
 }

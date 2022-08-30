@@ -7,5 +7,5 @@ func Flatten[T any](list [][]T) []T {
 	// 	result = append(result, v...)
 	// }
 
-	return Concat(result)(list)
+	return Concat(result)(list...)
 }
