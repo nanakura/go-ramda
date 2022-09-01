@@ -22,3 +22,7 @@ func TestMaxBy(t *testing.T) {
 		return MaxBy(square)(a)(e)
 	})(0)([]int{}))
 }
+
+func TestMaxInList(t *testing.T) {
+	assert.Equal(t, 10, MaxInList([]int{1, 2, 3, 10}))
+}

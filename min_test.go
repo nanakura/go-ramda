@@ -23,3 +23,7 @@ func TestMinBy(t *testing.T) {
 		return MinBy(square)(a)(e)
 	})(math.MaxInt64)([]int{}))
 }
+
+func TestMinInList(t *testing.T) {
+	assert.Equal(t, -1, MinInList([]int{-1, 2, 3, 10}))
+}
