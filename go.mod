@@ -1,4 +1,4 @@
-module gitee.com/nanakura/go-ramda
+module github.com/nanakura/go-ramda
 
 go 1.18
 
