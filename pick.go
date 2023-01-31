@@ -1,18 +1,20 @@
 package ramda
 
+import mapset "github.com/deckarep/golang-set/v2"
+
 func Pick[K comparable, V any](names []K) func(map[K]V) map[K]V {
 	return func(obj map[K]V) map[K]V {
-		namesHasKey := map[K]bool{}
-		objHasKey := map[K]bool{}
+		namesHasKey := mapset.NewSet[K]()
+		objHasKey := mapset.NewSet[K]()
 		res := map[K]V{}
 		for _, x := range names {
-			namesHasKey[x] = true
+			namesHasKey.Add(x)
 		}
 		for k := range obj {
-			objHasKey[k] = true
+			objHasKey.Add(k)
 		}
 		for k, v := range obj {
-			if namesHasKey[k] && objHasKey[k] {
+			if namesHasKey.Contains(k) && objHasKey.Contains(k) {
 				res[k] = v
 			}
 		}

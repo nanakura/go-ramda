@@ -1,14 +1,16 @@
 package ramda
 
+import mapset "github.com/deckarep/golang-set/v2"
+
 func Without[T comparable](list1 []T) func([]T) []T {
 	return func(list2 []T) []T {
-		toRemove := map[T]bool{}
+		toRemove := mapset.NewSet[T]()
 		var res []T
 		for _, it := range list1 {
-			toRemove[it] = true
+			toRemove.Add(it)
 		}
 		for _, it := range list2 {
-			if !toRemove[it] {
+			if !toRemove.Contains(it) {
 				res = append(res, it)
 			}
 		}

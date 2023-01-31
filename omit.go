@@ -1,18 +1,20 @@
 package ramda
 
+import mapset "github.com/deckarep/golang-set/v2"
+
 func Omit[K comparable, V any](names []K) func(map[K]V) map[K]V {
 	return func(obj map[K]V) map[K]V {
-		objHasKey := map[K]bool{}
-		namesHasKey := map[K]bool{}
+		objHasKey := mapset.NewSet[K]()
+		namesHasKey := mapset.NewSet[K]()
 		res := map[K]V{}
 		for k := range obj {
-			objHasKey[k] = true
+			objHasKey.Add(k)
 		}
 		for _, name := range names {
-			namesHasKey[name] = true
+			namesHasKey.Add(name)
 		}
 		for k, v := range obj {
-			if objHasKey[k] && !namesHasKey[k] {
+			if objHasKey.Contains(k) && !namesHasKey.Contains(k) {
 				res[k] = v
 			}
 		}
