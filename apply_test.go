@@ -1,12 +1,13 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestApply(t *testing.T) {
-	var max = func(xs ...int) int {
+	max := func(xs ...int) int {
 		res := xs[0]
 		for _, x := range xs {
 			if x > res {

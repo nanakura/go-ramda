@@ -7,6 +7,7 @@ func ForEach[T any](fn func(T)) func([]T) {
 		}
 	}
 }
+
 func ForEachWithIndex[T any](fn func(T, int)) func([]T) {
 	return func(list []T) {
 		for i, it := range list {

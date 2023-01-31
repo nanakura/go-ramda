@@ -8,6 +8,8 @@ func DropLast[T any](count int) func([]T) []T {
 			return make([]T, 0)
 		}
 
-		return list[:(listLen - count)]
+		res := make([]T, listLen-count)
+		copy(res, list[:(listLen-count)])
+		return res
 	}
 }

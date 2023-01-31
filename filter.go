@@ -14,11 +14,12 @@ func Filter[T any](fn func(T) bool) func([]T) []T {
 			}
 		}
 
-		result := list[:newLen]
-
+		result := make([]T, newLen)
+		copy(result, list[:newLen])
 		return result
 	}
 }
+
 func FilterWithIndex[T any](fn func(T, int) bool) func([]T) []T {
 	return func(input []T) []T {
 		list := make([]T, len(input))
@@ -32,8 +33,8 @@ func FilterWithIndex[T any](fn func(T, int) bool) func([]T) []T {
 			}
 		}
 
-		result := list[:newLen]
-
+		result := make([]T, newLen)
+		copy(result, list[:newLen])
 		return result
 	}
 }

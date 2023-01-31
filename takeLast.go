@@ -6,7 +6,9 @@ func TakeLast[T any](count int) func([]T) []T {
 		if count >= length || count < 0 {
 			return list
 		} else {
-			return list[(length - count):]
+			res := make([]T, count)
+			copy(res, list[length-count:])
+			return res
 		}
 	}
 }

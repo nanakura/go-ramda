@@ -2,12 +2,12 @@ package ramda
 
 func Union[T comparable](list1 []T) func([]T) []T {
 	return func(list2 []T) []T {
-		resMap := make(map[T]interface{})
+		resMap := make(map[T]struct{})
 		for _, v := range list1 {
-			resMap[v] = true
+			resMap[v] = struct{}{}
 		}
 		for _, v := range list2 {
-			resMap[v] = true
+			resMap[v] = struct{}{}
 		}
 		res := make([]T, len(resMap))
 		i := 0

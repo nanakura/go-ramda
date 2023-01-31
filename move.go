@@ -16,7 +16,7 @@ func Move[T any](from int) func(int) func([]T) []T {
 				positiveTo = to
 			}
 			item := list[positiveFrom]
-			var result []T
+			result := make([]T, 0, length)
 			for idx := 0; idx < length; idx++ {
 				if idx != positiveFrom {
 					result = append(result, list[idx])

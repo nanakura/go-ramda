@@ -1,10 +1,14 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
+	"sort"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestUnion(t *testing.T) {
-	assert.Equal(t, []int{1, 2, 3, 4}, Union([]int{1, 2, 3})([]int{2, 3, 4}))
+	arr := Union([]int{1, 2, 3})([]int{2, 3, 4})
+	sort.Ints(arr)
+	assert.Equal(t, arr, []int{1, 2, 3, 4})
 }

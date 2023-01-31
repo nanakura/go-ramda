@@ -1,12 +1,13 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFind(t *testing.T) {
-	var xs = []map[string]int{
+	xs := []map[string]int{
 		{"a": 1},
 		{"a": 2},
 		{"a": 3},
@@ -15,7 +16,7 @@ func TestFind(t *testing.T) {
 }
 
 func TestFindIndex(t *testing.T) {
-	var xs = []map[string]int{
+	xs := []map[string]int{
 		{"a": 1},
 		{"a": 2},
 		{"a": 3},
@@ -25,22 +26,30 @@ func TestFindIndex(t *testing.T) {
 }
 
 func TestFindLast(t *testing.T) {
-	var xs = []map[string]int{
-		{"a": 1,
-			"b": 0},
-		{"a": 1,
-			"b": 1},
+	xs := []map[string]int{
+		{
+			"a": 1,
+			"b": 0,
+		},
+		{
+			"a": 1,
+			"b": 1,
+		},
 	}
 	assert.Equal(t, map[string]int{"a": 1, "b": 1}, FindLast(PropEq[string, int](1)("a"))(xs))
 	assert.Equal(t, nil, FindLast(PropEq[string, int](4)("a"))(xs))
 }
 
 func TestFindLastIndex(t *testing.T) {
-	var xs = []map[string]int{
-		{"a": 1,
-			"b": 0},
-		{"a": 1,
-			"b": 1},
+	xs := []map[string]int{
+		{
+			"a": 1,
+			"b": 0,
+		},
+		{
+			"a": 1,
+			"b": 1,
+		},
 	}
 	assert.Equal(t, 1, FindLastIndex(PropEq[string, int](1)("a"))(xs))
 	assert.Equal(t, -1, FindLastIndex(PropEq[string, int](4)("a"))(xs))

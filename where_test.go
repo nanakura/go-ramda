@@ -1,12 +1,13 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestWhere(t *testing.T) {
-	var pred = Where(map[string]func(string) bool{
+	pred := Where(map[string]func(string) bool{
 		"a": Equals("foo"),
 	})
 	assert.Equal(t, true, pred(map[string]string{"a": "foo"}))

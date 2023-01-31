@@ -1,9 +1,10 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
 	"math"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMin(t *testing.T) {

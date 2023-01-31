@@ -13,7 +13,9 @@ func Slice[T any](fromIndex int) func(int) func([]T) []T {
 			if toIndex < fromIndex {
 				fromIndex, toIndex = toIndex, fromIndex
 			}
-			return list[fromIndex:toIndex]
+			res := make([]T, toIndex-fromIndex)
+			copy(res, list[fromIndex:toIndex])
+			return res
 		}
 	}
 }

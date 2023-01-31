@@ -1,8 +1,9 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func f(a int, b int) int {

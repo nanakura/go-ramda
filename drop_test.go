@@ -1,8 +1,9 @@
 package ramda
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDrop(t *testing.T) {
@@ -20,7 +21,7 @@ func TestDropLast(t *testing.T) {
 }
 
 func TestDropWhile(t *testing.T) {
-	var lteTwo = func(x int) bool {
+	lteTwo := func(x int) bool {
 		return x <= 2
 	}
 	assert.Equal(t, []int{3, 4, 3, 2, 1}, DropWhile(lteTwo)([]int{1, 2, 3, 4, 3, 2, 1}))

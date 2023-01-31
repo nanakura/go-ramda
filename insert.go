@@ -4,7 +4,7 @@ func Insert[T any](idx int) func(T) func([]T) []T {
 	return func(elt T) func([]T) []T {
 		return func(xs []T) []T {
 			lens := len(xs)
-			var res []T
+			res := make([]T, 0, lens)
 			for i := 0; i < idx; i++ {
 				res = append(res, xs[i])
 			}
