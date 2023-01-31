@@ -14,11 +14,9 @@ func UnionWith[T comparable](pred func(T) bool) func([]T) func([]T) []T {
 					resMap[v] = struct{}{}
 				}
 			}
-			res := make([]T, len(resMap))
-			i := 0
+			res := make([]T, 0, len(resMap))
 			for k := range resMap {
-				res[i] = k
-				i++
+				res = append(res, k)
 			}
 			return res
 		}

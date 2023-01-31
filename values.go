@@ -2,11 +2,9 @@ package ramda
 
 // Values returns a slice of map's values
 func Values[T comparable, R any](m map[T]R) []R {
-	keys := make([]R, len(m))
-	i := 0
+	keys := make([]R, 0, len(m))
 	for _, v := range m {
-		keys[i] = v
-		i++
+		keys = append(keys, v)
 	}
 	return keys
 }
